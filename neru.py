@@ -5,8 +5,18 @@ def page_record(page: ft.Page):
     page.controls.clear()
 
     title = ft.Text("睡眠を記録", size=32)
-    sleep_time_button = ft.ElevatedButton("就寝時間を入力", on_click=lambda _: page.open(ft.TimePicker()))
-    wake_time_button = ft.ElevatedButton("起床時間を入力", on_click=lambda _: page.open(ft.TimePicker()))
+    sleep_time_button = ft.ElevatedButton(
+        "就寝時間を入力",
+        on_click=lambda _: page.open(
+            ft.TimePicker(cancel_text="キャンセル", confirm_text="確認", help_text="就寝時間を入力")
+        ),
+    )
+    wake_time_button = ft.ElevatedButton(
+        "起床時間を入力",
+        on_click=lambda _: page.open(
+            ft.TimePicker(cancel_text="キャンセル", confirm_text="確認", help_text="起床時間を入力")
+        ),
+    )
 
     page.add(
         ft.Column(
