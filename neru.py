@@ -35,9 +35,15 @@ def page_record(page: ft.Page):
         ),
     )
 
+    def on_record_button_click(e):
+        record_button.text = "記録しました"
+        record_button.update()
+
+    record_button = ft.ElevatedButton("記録する", on_click=on_record_button_click)
+
     page.add(
         ft.Column(
-            [title, sleep_time_button, wake_time_button],
+            [title, sleep_time_button, wake_time_button, record_button],
             alignment=ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
             spacing=30,
